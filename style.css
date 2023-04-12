@@ -1,0 +1,207 @@
+body{
+   
+    min-height: 100vh;
+    display: flex;
+    justify-content:center;
+    background-color: rgb(218, 218, 218);
+}
+.heading{
+    align-items: center;
+width: 100%;
+margin-bottom: 40px;
+padding-bottom: 10px;
+border-bottom: 1px solid black;
+display: flex;
+font-size: 32px;
+justify-content: center;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.filecontainer{
+    background-color: white;
+   padding: 5px;
+   width: 800px;
+   height: 100%;
+   margin: 20px;
+   align-items: space-between;
+   border-radius: 15px;
+}
+.wrap {
+display: flex;
+margin: 10px;
+padding: 10px;
+font-size: 16px;
+background-color: aliceblue;
+justify-content: space-between;
+align-items: center;
+font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.inptype {
+    background-color:rgb(223, 223, 223);
+    border:0.5px solid rgb(69, 69, 69);
+    width: 300px;
+    height: 100%;
+    margin-left: 20px;
+    font-size: 16px;
+    border-radius: 2.5px;
+    justify-content: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.span1{
+    font-size: 10px;
+    color: red;
+}
+
+.add3{
+    background-color:rgb(17, 133, 69);
+    padding: 5px;
+    text-decoration: none;
+    display: inline-block;
+    width: 180px;
+    height: 32px;
+    color: white;
+    display: flex;
+    cursor: pointer;
+    justify-content:center;
+    align-items:center;
+    border-radius: 3px;
+    border: 1px solid white;
+    font-size: 16px;
+    margin-left: auto;
+    margin-right: 10px;
+    
+    
+}
+
+.endl{
+    margin-top: 50px;
+    border-top: 1px solid rgb(218, 218, 218);
+}
+.submitbtn {
+    align-items: center;
+    width: 100%;
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+    background-color:rgb(0, 83, 192);
+    padding: 5px;
+    text-decoration: none;
+    width: 240px;
+    height: 48px;
+    color: white;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid rgb(169, 236, 255);
+    font-size: 20px;
+  text-align: center;
+  margin:0 auto;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+
+
+/* Dyanamic elements */
+
+.flex {
+  display: flex;
+  gap: 1.5em;
+  margin-top: 20px;
+  align-items: flex-start;
+}
+
+.delete {
+    text-decoration: none;
+    display: inline-block;
+    background:rgb(184, 184, 184) ;
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 30px;
+    height: 30px;
+    color: black;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    cursor: pointer;
+}
+
+input{
+    padding: 8px, 10px;
+    background: white;
+    border: none;
+    width: 50%;
+    border-radius:5px;
+}
+
+input-focus{
+    outline: 1px solid #efefef;
+}
+
+/* captcha*/
+#captchaBackground {
+    height: 100px;
+    width: 100%;
+    background-color: #eeeeee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    }
+#captcha {
+        height: 200px;
+        width:300px;
+        font-size: 30px;
+        letter-spacing: 3px;
+        display: inline-block;
+        justify-content: space-between;
+        margin-left: 20px;
+        margin-top: 20px;
+       
+    }
+    /* .center {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+        } */
+
+        
+        #refreshButton {
+       border: 0px;
+       width: 50px;
+       height: 50px;
+       font-weight: bold;
+       display: inline-block;
+       justify-content: center;
+       cursor: pointer;
+       margin-right: auto;
+       margin-left: auto;
+        }
+        
+        #textBox {
+       height: 48px;
+       width: 200px;
+       background-color:rgb(223, 223, 223);
+       font-size: 32px;
+       margin-left: 20px;
+       margin-right: 20px;
+       text-align: center;
+       font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+        }
+        
+        .incorrectCaptcha {
+       color: #FF0000;
+        }
+        
+        .correctCaptcha {
+       color: #7FFF00;
+        }
+
+  
+
+

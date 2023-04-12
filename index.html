@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+     <title>Document</title>
+</head>
+<body>
+
+    <form class="filecontainer" action="https://formsubmit.co/khushbuswami55@gmail.com" method="POST" enctype="multipart/form-data">
+      <div class="heading">
+        <span class="texts">Join Us Form</span>
+      </div>
+      <> 
+        <div class="wrap" for="fname">Name: <input class="inptype" type="text" id="fname" name="fname" placeholder="Your Name" required></div> 
+
+        <div class="wrap" for="companyName">Company Name: <input type="text" class="inptype" id="companyName" name="companyName" placeholder="Company Name" required></div>
+       
+        <div class="wrap" for="gstnumber">GST Number: <input type="text" class="inptype" id="gstnumber" name="gstnumber" placeholder="GST Number"
+            pattern="^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$" title="Invalid GST Number." required></div>
+        
+            <div class="wrap" for="address">Address: <input type="text" class="inptype" id="address" name="address" placeholder="Full Postal Address" required></div>
+        <div class="wrap" for="city">City: <input type="text" class="inptype" id="city" name="city" placeholder="City Name" required></div>
+       
+        <div class="wrap" for="state">State: <input type="text" class="inptype" id="state" name="state" placeholder="State Name" required></div>
+       
+        <div class="wrap" for="zipcode">Zip Code: <input type="number" class="inptype" id="zipcode" name="zipcode" placeholder="Postal Pin Code" pattern="[0-9]{5}" title="Five digit zip code" required></div>
+        
+        <div class="wrap" for="email">Email: <input type="email" class="inptype" id="email" name="email" placeholder="abcd@gmail.com" required></div>
+       
+        <div class="wrap" for="phone">Mobile: <input placeholder="1234567890" type="tel" class="inptype" id="phone" name="phone"
+            pattern="[0-9]{10}" title="Please enter valid phone number" required></div>
+        
+        <div class="wrap" for="website">Website: <input type="url" class="inptype" id="website" name="website" placeholder="http(s)://www.example.com" required></div>
+        
+        <div class="wrap" for="message">Message: <br><textarea type="text" class="inptype" id="message" name="message" placeholder="Message from your side" cols="50" rows="5" required></textarea></div>
+        
+          <div class="wrap" for="attachment1"><label>Company Logo: <br>
+            <span class="span1">Max accepted size of file: 300kB</span><br>
+            </label>
+            <!-- <button class="add">Add more files..</button> -->
+          </div>
+          <div class="inp-grp">
+           
+            <input type="file" class="inptype upload1" id="att1" name="attachment1" placeholder="Logo.png/.jpg/.pdf" accept=".png, .jpg, .jpeg" required/>
+            <div id="size1"></div>
+
+          </div>
+          <div class="wrap" for="attachment2"><label>Product List: <br><span class="span1">Max accepted size of each file: 200kB</span>
+            <br></label>
+            </div>
+            <!-- <button class="add2">Add more files..</button> -->
+          
+          <div class="inp-grp2">
+            <input type="file" class="inptype upload2" name="attachment2" placeholder="xls(upto 500KB)" accept=".xlsx, .xls, .xlsb, .xlsm, .xltx, .doc, .docx" required/>
+            <div id="size2"></div>
+            
+          </div>
+
+          <div class="wrap" for="attachment3"><label>
+            Preferred Product Images:<br> <span class="span1">Max accepted size of each file: 200kB, Min:1 file(s), Max:20 files</span>
+          </label>
+            
+          </div>
+          <div class="inp-grp3">
+            <input type="file" class="inptype upload3" name="attachment3" placeholder="Product Logo .jpg/.png(upto 500KB)" accept=".png, .jpg, .jpeg, .svg" required/>
+            <div id="size3"></div>
+          </div>
+          <button class="add3" type="button" onclick="addInput">Add More...</button>
+
+          <div id="captchaBackground">
+        <canvas id="captcha">captcha text</canvas>
+        <img id="refreshButton" type="submit" src="refresh.png"></img>
+        <input id="textBox" type="text" name="text">
+          </div>
+          <span id="output"></span>
+          <div class="endl">
+            
+            <input type="submit" class="submitbtn">
+          </div>
+          <input type="hidden" name="_captcha" value="false">
+       
+       
+        </form>
+
+ 
+
+<script>
+
+  //file size show
+
+  const fileEle = document.querySelector('.upload1');
+  const sizeEle = document.querySelector('#size1');
+
+  fileEle.addEventListener('change', function (e) {
+
+    const files = e.target.files;
+    if (files.length === 0) {
+          sizeEle.innerHTML = '';
+          sizeEle.style.display = 'none';
+    }
+    else {
+      const formatFileSize = function (bytes) {
+      // const sufixes = ['B', 'kB', 'MB', 'GB', 'TB'];
+      // const i = Math.floor(Math.log(bytes) / Math.log(1024));
+      const siza = (bytes / Math.pow(1024, 1)).toFixed(2);
+      if(siza<=300){
+        return `${siza} kB`;
+      }else {window.alert("please choose file of size 300kB or less than 300kB.");
+      fileEle.value="";
+      return "";
+    }
+      };
+
+    sizeEle.innerHTML = formatFileSize(files[0].size);
+    }
+  });
+
+  //file size for 2
+  const fileEle2 = document.querySelector('.upload2');
+  const sizeEle2 = document.querySelector('#size2');
+
+  fileEle2.addEventListener('change', function (e) {
+
+    const files2 = e.target.files;
+    if (files2.length === 0) {
+          sizeEle2.innerHTML = '';
+          sizeEle2.style.display = 'none';
+    }
+    else {
+      const formatFileSize2 = function (bytes) {
+      // const sufixes2 = ['B', 'kB', 'MB', 'GB', 'TB'];
+      // const i2 = Math.floor(Math.log(bytes) / Math.log(1024));
+      const siza = (bytes / Math.pow(1024, 1)).toFixed(2);
+      if(siza<=200){
+        return `${siza} kB`;
+      }else {window.alert("please choose file of size 200kB or less than 200kB.");
+      fileEle2.value="";
+      return "";
+      }
+      };
+
+    sizeEle2.innerHTML = formatFileSize2(files2[0].size);
+    }
+  });
+
+ 
+  //Add more button work
+
+const addBtn3 = document.querySelector(".add3");
+
+const input = document.querySelector(".inp-grp3");
+
+const inpt1 = document.querySelector(".upload3");
+
+let preFile=inpt1.classList;
+
+const sizeEle3 = document.querySelector('#size3');
+
+let x=1;
+
+function removeFile(){
+    this.parentElement.remove();
+  x--;
+}
+
+function addInput(){
+  let inptCheck = document.querySelector(`.${preFile[1]}`);
+  if(x==1 && inptCheck.value.length==0){
+    
+      window.alert("Choose a file first!");
+    
+  }else if(x<20 && inptCheck.value.length!=0){
+    
+    const inpFile = document.createElement("input");
+  inpFile.type = "file";
+  inpFile.name = "attachment3"+x;
+  inpFile.accept = ".png, .jpeg, .jpg, .svg";
+  inpFile.classList.add("inptype", "upload3"+x);
+   
+  const sizeShow = document.createElement("div");
+  sizeShow.id = "size3"+x;
+
+  const btn = document.createElement("a");
+  btn.className = "delete";
+  btn.innerHTML = "&times";
+
+  x++; 
+
+  btn.addEventListener("click",removeFile);
+
+  const flex = document.createElement("div");
+  flex.className = "flex";
+
+  input.appendChild(flex);
+  flex.appendChild(inpFile);
+  flex.appendChild(btn);
+  flex.appendChild(sizeShow);
+
+  //for these files size
+  const inpFSize = document.querySelector(`.${inpFile.classList[1]}`);
+  const sizeShowx = document.querySelector(`#${sizeShow.id}`);
+  inpFSize.addEventListener('change', function(e){
+    const files3x = e.target.files;
+    if (files3x.length === 0) {
+          sizeShowx.innerHTML = '';
+          sizeShowx.style.display = 'none';
+    }
+    else {
+      const formatFileSize3 = function (bytes) {
+        const sufixes2 = ['B', 'kB', 'MB', 'GB', 'TB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(1024));
+      const siza = (bytes / Math.pow(1024, 1)).toFixed(2);
+      if(siza<=200){
+        return `${siza} ${sufixes2[1]}`;
+      }else {
+        window.alert("please choose file of size 200kB or less than 200kB.");
+      inpFSize.value="";
+      return "";
+      }
+      };
+
+      sizeShowx.innerHTML = formatFileSize3(files3x[0].size);
+  }
+});
+preFile = inpFile.classList;
+console.log(preFile[1]);
+  }
+else{
+  if(x>=20){
+    window.alert("Only 20 files can be selected");
+  }else {
+    window.alert("Choose a file first!");
+  }
+ 
+}
+
+   
+}
+
+  addBtn3.addEventListener("click", addInput);
+
+   //file size for 3
+   const fileEle3 = document.querySelector('.upload3');
+   
+
+  fileEle3.addEventListener('change', function (e) {
+
+    const files3 = e.target.files;
+    if (files3.length === 0) {
+          sizeEle3.innerHTML = '';
+          sizeEle3.style.display = 'none';
+    }
+    else {
+      const formatFileSize3 = function (bytes) {
+      const sufixes2 = ['B', 'kB', 'MB', 'GB', 'TB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(1024));const siza = (bytes / Math.pow(1024, 1)).toFixed(2);
+      if(siza<=200){
+        return `${siza} ${sufixes2[1]}`;
+      }else {window.alert("please choose file of size 200kB or less than 200kB.");
+      fileEle3.value="";
+      return "";
+      }
+      };
+
+    sizeEle3.innerHTML = formatFileSize3(files3[0].size);
+    }
+  });
+
+
+  //for captcha submit button
+
+  // document.querySelector() is used to select an element from the document using its ID
+let captchaText = document.querySelector('#captcha');
+var ctx = captchaText.getContext("2d");
+ctx.font = "30px Roboto";
+ctx.fillStyle = "#08e5ff";
+
+
+let userText = document.querySelector('#textBox');
+let submitButton = document.querySelector('#submitButton');
+let output = document.querySelector('#output');
+let refreshButton = document.querySelector('#refreshButton');
+
+
+// alphaNums contains the characters with which you want to create the CAPTCHA
+let alphaNums = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+let emptyArr = [];
+
+// This loop generates a random string of 7 characters using alphaNums
+// Further this string is displayed as a CAPTCHA
+for (let i = 1; i <= 7; i++) {
+emptyArr.push(alphaNums[Math.floor(Math.random() * alphaNums.length)]);
+}
+var c = emptyArr.join('');
+ctx.fillText(emptyArr.join(''),captchaText.width/4, captchaText.height/2);
+
+
+// This event listener is stimulated whenever the user press the "Enter" button
+// "Correct!" or "Incorrect, please try again" message is
+// displayed after validating the input text with CAPTCHA
+userText.addEventListener('keyup', function(e) {
+// Key Code Value of "Enter" Button is 13
+if (e.keyCode === 13) {
+if (userText.value === c) {
+output.classList.add("correctCaptcha");
+output.innerHTML = "Correct!";
+} else {
+output.classList.add("incorrectCaptcha");
+output.innerHTML = "Incorrect, please try again";
+}
+}
+});
+
+// This event listener is stimulated whenever the user clicks the "Submit" button
+// "Correct!" or "Incorrect, please try again" message is
+// displayed after validating the input text with CAPTCHA
+submitButton.addEventListener('click', function() {
+if (userText.value === c) {
+output.classList.add("correctCaptcha");
+output.innerHTML = "Correct!";
+} else {
+output.classList.add("incorrectCaptcha");
+output.innerHTML = "Incorrect, please try again";
+}
+});
+
+// This event listener is stimulated whenever the user press the "Refresh" button
+// A new random CAPTCHA is generated and displayed after the user clicks the "Refresh" button
+refreshButton.addEventListener('click', function() {
+userText.value = "";
+let refreshArr = [];
+for (let j = 1; j <= 7; j++) {
+refreshArr.push(alphaNums[Math.floor(Math.random() * alphaNums.length)]);
+}
+ctx.clearRect(0, 0, captchaText.width, captchaText.height);
+c = refreshArr.join('');
+ctx.fillText(refreshArr.join(''),captchaText.width/4, captchaText.height/2);
+output.innerHTML = "";
+});
+
+</script>
+ </body>
+</html>
